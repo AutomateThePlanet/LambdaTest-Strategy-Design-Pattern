@@ -6,10 +6,10 @@ public class CartPage : WebPage
     {
     }
 
-    public IComponent ViewCartButton => Driver.FindByXPath("//a[normalize-space(.)='View Cart']");
-    public IComponent CheckoutButton => Driver.FindAllByXPath("//a[normalize-space(.)='Checkout']").Last();
-    public List<IComponent> CartItems => Driver.FindAllByCss("div.cart-item");
-    public IComponent TotalPrice => Driver.FindAllByXPath("//td[text()='Total:']/following-sibling::td/strong").Last();
+    public ComponentAdapter ViewCartButton => Driver.FindByXPath("//a[normalize-space(.)='View Cart']");
+    public ComponentAdapter CheckoutButton => Driver.FindAllByXPath("//a[normalize-space(.)='Checkout']").Last();
+    public List<ComponentAdapter> CartItems => Driver.FindAllByCss("div.cart-item");
+    public ComponentAdapter TotalPrice => Driver.FindAllByXPath("//td[text()='Total:']/following-sibling::td/strong").Last();
 
     public void ViewCart()
     {

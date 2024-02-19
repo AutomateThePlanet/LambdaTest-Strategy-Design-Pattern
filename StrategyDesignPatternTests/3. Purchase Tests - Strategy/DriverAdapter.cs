@@ -60,25 +60,25 @@ public class DriverAdapter : IDriver
         _webDriver.Navigate().GoToUrl(url);
     }
 
-    //public IComponent FindComponent(By locator)
+    //public ComponentAdapter FindComponent(By locator)
     //{
-    //    IComponent nativeWebComponent = 
+    //    ComponentAdapter nativeWebComponent = 
     //        _webDriverWait.Until(ExpectedConditions.ComponentExists(locator));
-    //    IComponent IComponent = new ComponentAdapter(_webDriver, nativeWebComponent, locator);
+    //    ComponentAdapter ComponentAdapter = new ComponentAdapter(_webDriver, nativeWebComponent, locator);
 
     //    ScrollIntoView(Component);
     //    ////HighlightComponent(Component);
     //    return Component;
     //}
 
-    //public List<IComponent> FindComponents(By locator)
+    //public List<ComponentAdapter> FindComponents(By locator)
     //{
     //    ReadOnlyCollection<IWebComponent> nativeWebComponents = 
     //        _webDriverWait.Until(ExpectedConditions.PresenceOfAllComponentsLocatedBy(locator));
-    //    var Components = new List<IComponent>();
+    //    var Components = new List<ComponentAdapter>();
     //    foreach (var nativeWebComponent in nativeWebComponents)
     //    {
-    //        IComponent IComponent = new ComponentAdapter(_webDriver, nativeWebComponent, locator);
+    //        ComponentAdapter ComponentAdapter = new ComponentAdapter(_webDriver, nativeWebComponent, locator);
     //        Components.Add(Component);
     //    }
 
@@ -96,7 +96,7 @@ public class DriverAdapter : IDriver
         _webDriver.Navigate().Refresh();
     }
 
-    public bool ComponentExists(IComponent component)
+    public bool ComponentExists(ComponentAdapter component)
     {
         try
         {
@@ -106,7 +106,7 @@ public class DriverAdapter : IDriver
         }
         catch
         {
-            // The IComponent was not found
+            // The ComponentAdapter was not found
             return false;
         }
     }
@@ -130,76 +130,76 @@ public class DriverAdapter : IDriver
         });
     }
 
-    public List<IComponent> FindAllByClass(string cssClass)
+    public List<ComponentAdapter> FindAllByClass(string cssClass)
     {
         return FindAll(new ClassFindStrategy(cssClass));
     }
 
-    public List<IComponent> FindAllById(string id)
+    public List<ComponentAdapter> FindAllById(string id)
     {
         return FindAll(new IdFindStrategy(id));
     }
 
-    public List<IComponent> FindAllByTag(string tag)
+    public List<ComponentAdapter> FindAllByTag(string tag)
     {
         return FindAll(new TagFindStrategy(tag));
     }
 
-    public List<IComponent> FindAllByXPath(string xpath)
+    public List<ComponentAdapter> FindAllByXPath(string xpath)
     {
         return FindAll(new XPathFindStrategy(xpath));
     }
 
-    public List<IComponent> FindAllByCss(string css)
+    public List<ComponentAdapter> FindAllByCss(string css)
     {
         return FindAll(new CssFindStrategy(css));
     }
 
-    public List<IComponent> FindAllByLinkText(string linkText)
+    public List<ComponentAdapter> FindAllByLinkText(string linkText)
     {
         return FindAll(new LinkTextFindStrategy(linkText));
     }
 
-    public IComponent FindByCss(string css)
+    public ComponentAdapter FindByCss(string css)
     {
         return Find(new CssFindStrategy(css));
     }
 
-    public IComponent FindByLinkText(string linkText)
+    public ComponentAdapter FindByLinkText(string linkText)
     {
         return Find(new LinkTextFindStrategy(linkText));
     }
 
-    public IComponent FindByClass(string cssClass)
+    public ComponentAdapter FindByClass(string cssClass)
     {
         return Find(new ClassFindStrategy(cssClass));
     }
 
-    public IComponent FindById(string id)
+    public ComponentAdapter FindById(string id)
     {
         return Find(new IdFindStrategy(id));
     }
 
-    public IComponent FindByTag(string tag)
+    public ComponentAdapter FindByTag(string tag)
     {
         return Find(new TagFindStrategy(tag));
     }
 
-    public IComponent FindByXPath(string xpath)
+    public ComponentAdapter FindByXPath(string xpath)
     {
         return Find(new XPathFindStrategy(xpath));
     }
 
-    public IComponent Find(FindStrategy findStrategy)
+    public ComponentAdapter Find(FindStrategy findStrategy)
     {
         var nativeComponent = _componentFindService.Find(findStrategy);
         return new ComponentAdapter(_webDriver, nativeComponent, findStrategy.Convert());
     }
 
-    public List<IComponent> FindAll(FindStrategy findStrategy)
+    public List<ComponentAdapter> FindAll(FindStrategy findStrategy)
     {
         var nativeComponents = _componentFindService.FindAll(findStrategy);
-        var resultComponents = new List<IComponent>();
+        var resultComponents = new List<ComponentAdapter>();
         foreach (var nativeComponent in nativeComponents)
         {
             resultComponents.Add(new ComponentAdapter(_webDriver, nativeComponent, findStrategy.Convert()));
@@ -208,12 +208,12 @@ public class DriverAdapter : IDriver
         return resultComponents;
     }
 
-    public void Wait(IComponent Component, WaitStrategy waitStrategy)
+    public void Wait(ComponentAdapter Component, WaitStrategy waitStrategy)
     {
         waitStrategy?.WaitUntil(_webDriver, _webDriver, Component.By);
     }
 
-    private void ScrollIntoView(IComponent Component)
+    private void ScrollIntoView(ComponentAdapter Component)
     {
         ExecuteScript("arguments[0].scrollIntoView(true);", Component.WrappedElement);
     }

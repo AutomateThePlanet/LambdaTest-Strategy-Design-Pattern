@@ -1,6 +1,6 @@
 ﻿namespace StrategyDesignPattern.ThirdVersion;
 
-public class ComponentAdapter : IComponent
+public class ComponentAdapter
 {
     private readonly IWebDriver _webDriver;
     private readonly Actions _actions;
@@ -58,16 +58,16 @@ public class ComponentAdapter : IComponent
         webDriverWait.Until(ExpectedConditions.ElementToBeClickable(by));
     }
 
-    public IComponent FindComponent(By locator)
+    public ComponentAdapter FindComponent(By locator)
     {
         var element = _webDriver.FindElement(locator);
         return new ComponentAdapter(_webDriver, element, locator);
     }
 
-    public List<IComponent> FindComponents(By locator)
+    public List<ComponentAdapter> FindComponents(By locator)
     {
         var elements = _webDriver.FindElements(locator);
-        var components = new List<IComponent>();
+        var components = new List<ComponentAdapter>();
         foreach (var element in elements)
         {
             components.Add(new ComponentAdapter(_webDriver, element, locator));

@@ -56,25 +56,25 @@ public class DriverAdapter : IDriver
         _webDriver.Navigate().GoToUrl(url);
     }
 
-    public IComponent FindComponent(By locator)
+    public ComponentAdapter FindComponent(By locator)
     {
         IWebElement nativeWebElement = 
             _webDriverWait.Until(ExpectedConditions.ElementExists(locator));
-        IComponent element = new ComponentAdapter(_webDriver, nativeWebElement, locator);
+        ComponentAdapter element = new ComponentAdapter(_webDriver, nativeWebElement, locator);
 
         ScrollIntoView(element);
         ////HighlightElement(element);
         return element;
     }
 
-    public List<IComponent> FindComponents(By locator)
+    public List<ComponentAdapter> FindComponents(By locator)
     {
         ReadOnlyCollection<IWebElement> nativeWebElements = 
             _webDriverWait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(locator));
-        var elements = new List<IComponent>();
+        var elements = new List<ComponentAdapter>();
         foreach (var nativeWebElement in nativeWebElements)
         {
-            IComponent element = new ComponentAdapter(_webDriver, nativeWebElement, locator);
+            ComponentAdapter element = new ComponentAdapter(_webDriver, nativeWebElement, locator);
             elements.Add(element);
         }
 
@@ -92,7 +92,7 @@ public class DriverAdapter : IDriver
         _webDriver.Navigate().Refresh();
     }
 
-    public bool ComponentExists(IComponent component)
+    public bool ComponentExists(ComponentAdapter component)
     {
         try
         {
@@ -126,12 +126,12 @@ public class DriverAdapter : IDriver
         });
     }
 
-    private void ScrollIntoView(IComponent element)
+    private void ScrollIntoView(ComponentAdapter element)
     {
         ExecuteScript("arguments[0].scrollIntoView(true);", element.WrappedElement);
     }
 
-    private void HighlightElement(IComponent element)
+    private void HighlightElement(ComponentAdapter element)
     {
         try
         {

@@ -8,19 +8,19 @@ namespace StrategyDesignPattern;
 
 public interface IComponentFindService
 {
-    IComponent FindById(string id);
-    IComponent FindByXPath(string xpath);
-    IComponent FindByTag(string tag);
-    IComponent FindByClass(string cssClass);
-    IComponent FindByCss(string css);
-    IComponent FindByLinkText(string linkText);
-    List<IComponent> FindAllById(string id);
-    List<IComponent> FindAllByXPath(string xpath);
-    List<IComponent> FindAllByTag(string tag);
-    List<IComponent> FindAllByClass(string cssClass);
-    List<IComponent> FindAllByCss(string css);
-    List<IComponent> FindAllByLinkText(string linkText);
+    ComponentAdapter FindById(string id);
+    ComponentAdapter FindByXPath(string xpath);
+    ComponentAdapter FindByTag(string tag);
+    ComponentAdapter FindByClass(string cssClass);
+    ComponentAdapter FindByCss(string css);
+    ComponentAdapter FindByLinkText(string linkText);
+    List<ComponentAdapter> FindAllById(string id);
+    List<ComponentAdapter> FindAllByXPath(string xpath);
+    List<ComponentAdapter> FindAllByTag(string tag);
+    List<ComponentAdapter> FindAllByClass(string cssClass);
+    List<ComponentAdapter> FindAllByCss(string css);
+    List<ComponentAdapter> FindAllByLinkText(string linkText);
 
-    List<IComponent> FindAll(FindStrategy findStrategy);
-    IComponent Find(FindStrategy findStrategy);
+    List<ComponentAdapter> FindAll(FindStrategy findStrategy);
+    ComponentAdapter Find(FindStrategy findStrategy);
 }

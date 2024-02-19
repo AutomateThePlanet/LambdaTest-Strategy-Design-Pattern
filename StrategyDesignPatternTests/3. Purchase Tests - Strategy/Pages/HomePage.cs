@@ -6,7 +6,7 @@ public class HomePage : WebPage
     {
     }
 
-    public IComponent SearchInput => Driver.FindByXPath("//input[@name='search']");
+    public ComponentAdapter SearchInput => Driver.FindByXPath("//input[@name='search']");
 
     public void SearchProduct(string searchText)
     {

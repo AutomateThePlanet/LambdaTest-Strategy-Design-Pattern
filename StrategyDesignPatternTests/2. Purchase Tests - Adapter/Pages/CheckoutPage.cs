@@ -8,26 +8,26 @@ public class CheckoutPage : WebPage
     {
     }
 
-    public IComponent FirstNameInput => Driver.FindComponent(By.Id("input-payment-firstname"));
-    public IComponent LastNameInput => Driver.FindComponent(By.Id("input-payment-lastname"));
-    public IComponent EmailInput => Driver.FindComponent(By.Id("input-payment-email"));
-    public IComponent TelephoneInput => Driver.FindComponent(By.Id("input-payment-telephone"));
-    public IComponent PasswordInput => Driver.FindComponent(By.Id("input-payment-password"));
-    public IComponent ConfirmPasswordInput => Driver.FindComponent(By.Id("input-payment-confirm"));
-    public IComponent CompanyInput => Driver.FindComponent(By.Id("input-payment-company"));
-    public IComponent Address1Input => Driver.FindComponent(By.Id("input-payment-address-1"));
-    public IComponent Address2Input => Driver.FindComponent(By.Id("input-payment-address-2"));
-    public IComponent CityInput => Driver.FindComponent(By.Id("input-payment-city"));
-    public IComponent PostCodeInput => Driver.FindComponent(By.Id("input-payment-postcode"));
-    public IComponent ShippingAddressCountrySelect => Driver.FindComponent(By.Id("input-payment-country"));
-    public IComponent ShippingAddressCountryOption(string country) =>
+    public ComponentAdapter FirstNameInput => Driver.FindComponent(By.Id("input-payment-firstname"));
+    public ComponentAdapter LastNameInput => Driver.FindComponent(By.Id("input-payment-lastname"));
+    public ComponentAdapter EmailInput => Driver.FindComponent(By.Id("input-payment-email"));
+    public ComponentAdapter TelephoneInput => Driver.FindComponent(By.Id("input-payment-telephone"));
+    public ComponentAdapter PasswordInput => Driver.FindComponent(By.Id("input-payment-password"));
+    public ComponentAdapter ConfirmPasswordInput => Driver.FindComponent(By.Id("input-payment-confirm"));
+    public ComponentAdapter CompanyInput => Driver.FindComponent(By.Id("input-payment-company"));
+    public ComponentAdapter Address1Input => Driver.FindComponent(By.Id("input-payment-address-1"));
+    public ComponentAdapter Address2Input => Driver.FindComponent(By.Id("input-payment-address-2"));
+    public ComponentAdapter CityInput => Driver.FindComponent(By.Id("input-payment-city"));
+    public ComponentAdapter PostCodeInput => Driver.FindComponent(By.Id("input-payment-postcode"));
+    public ComponentAdapter ShippingAddressCountrySelect => Driver.FindComponent(By.Id("input-payment-country"));
+    public ComponentAdapter ShippingAddressCountryOption(string country) =>
         ShippingAddressCountrySelect.FindComponent(By.XPath($".//option[contains(text(), '{country}')]"));
-    public IComponent BillingAddressRegionSelect => Driver.FindComponent(By.Id("input-payment-zone"));
-    public IComponent BillingAddressRegionOption(string region) =>
+    public ComponentAdapter BillingAddressRegionSelect => Driver.FindComponent(By.Id("input-payment-zone"));
+    public ComponentAdapter BillingAddressRegionOption(string region) =>
         BillingAddressRegionSelect.FindComponent(By.XPath($".//option[contains(text(), '{region}')]"));
-    public IComponent TermsAgreeCheckbox => Driver.FindComponent(By.XPath("//input[@id='input-agree']//following-sibling::label"));
-    public IComponent ContinueButton => Driver.FindComponent(By.XPath("//button[@id='button-save']"));
-    public IComponent TotalPrice => Driver.FindComponents(By.XPath("//td[text()='Total:']/following-sibling::td/strong")).Last();
+    public ComponentAdapter TermsAgreeCheckbox => Driver.FindComponent(By.XPath("//input[@id='input-agree']//following-sibling::label"));
+    public ComponentAdapter ContinueButton => Driver.FindComponent(By.XPath("//button[@id='button-save']"));
+    public ComponentAdapter TotalPrice => Driver.FindComponents(By.XPath("//td[text()='Total:']/following-sibling::td/strong")).Last();
 
     public void FillUserDetails(UserDetails userDetails)
     {

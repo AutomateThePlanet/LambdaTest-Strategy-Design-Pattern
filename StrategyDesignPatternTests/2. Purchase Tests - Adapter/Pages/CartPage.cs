@@ -8,10 +8,10 @@ public class CartPage : WebPage
     {
     }
 
-    public IComponent ViewCartButton => Driver.FindComponent(By.XPath("//a[normalize-space(.)='View Cart']"));
-    public IComponent CheckoutButton => Driver.FindComponents(By.XPath("//a[normalize-space(.)='Checkout']")).Last();
-    public List<IComponent> CartItems => Driver.FindComponents(By.CssSelector("div.cart-item")).ToList();
-    public IComponent TotalPrice => Driver.FindComponents(By.XPath("//td[text()='Total:']/following-sibling::td/strong")).Last();
+    public ComponentAdapter ViewCartButton => Driver.FindComponent(By.XPath("//a[normalize-space(.)='View Cart']"));
+    public ComponentAdapter CheckoutButton => Driver.FindComponents(By.XPath("//a[normalize-space(.)='Checkout']")).Last();
+    public List<ComponentAdapter> CartItems => Driver.FindComponents(By.CssSelector("div.cart-item")).ToList();
+    public ComponentAdapter TotalPrice => Driver.FindComponents(By.XPath("//td[text()='Total:']/following-sibling::td/strong")).Last();
 
     public void ViewCart()
     {

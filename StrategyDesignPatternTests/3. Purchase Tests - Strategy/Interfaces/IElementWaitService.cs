@@ -4,5 +4,5 @@ namespace StrategyDesignPattern;
 
 public interface IElementWaitService
 {
-    void Wait(IComponent element, WaitStrategy waitStrategy);
+    void Wait(ComponentAdapter element, WaitStrategy waitStrategy);
 }

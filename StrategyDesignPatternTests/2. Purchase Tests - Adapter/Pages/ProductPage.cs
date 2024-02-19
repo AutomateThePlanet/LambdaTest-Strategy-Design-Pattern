@@ -9,10 +9,10 @@ public class ProductPage : WebPage
     {
     }
 
-    public IComponent AddToCartButton => Driver.FindComponents(By.XPath("//button[@title='Add to Cart']")).Last();
-    public IComponent CompareButton => Driver.FindComponent(By.XPath("//a[@aria-label='Compare']"));
-    public IComponent QuantityField => Driver.FindComponents(By.XPath("//input[@name='quantity']")).Last();
-    public IReadOnlyCollection<IComponent> CompareProductButtons => Driver.FindComponents(By.XPath("//button[@title='Compare this Product']"));
+    public ComponentAdapter AddToCartButton => Driver.FindComponents(By.XPath("//button[@title='Add to Cart']")).Last();
+    public ComponentAdapter CompareButton => Driver.FindComponent(By.XPath("//a[@aria-label='Compare']"));
+    public ComponentAdapter QuantityField => Driver.FindComponents(By.XPath("//input[@name='quantity']")).Last();
+    public IReadOnlyCollection<ComponentAdapter> CompareProductButtons => Driver.FindComponents(By.XPath("//button[@title='Compare this Product']"));
 
     public void SelectProductFromAutocomplete(int productId)
     {
