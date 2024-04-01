@@ -6,11 +6,13 @@
 This tutorial explores the Strategy Design Pattern, offering unparalleled flexibility and efficiency in testing frameworks. It acts as a foundation for implementing dynamic behaviors in tests without modifying the core logic. By encapsulating algorithms within separate classes under a common interface, the Strategy Design Pattern enables scalable, maintainable, and highly adaptable test automation frameworks. By the end of this tutorial, you'll understand how to leverage this design pattern for more effective testing outcomes.
 
 **What Will You Learn?**
+
 - **Introduction to the Strategy Design Pattern:** Delve into the basics of the Strategy Design Pattern and its critical role in enhancing test automation strategies.
 - **Implementing Dynamic Behaviors in Tests:** Step-by-step guidance on encapsulating finding strategies or waiting techniques within separate, interchangeable classes.
 - **Enhancing Test Framework Flexibility and Efficiency:** Learn how to use the Strategy Design Pattern to create scalable, maintainable, and adaptable test automation frameworks.
 
 **:key: What is the Strategy Design Pattern?**
+
 The Strategy Design Pattern allows for the dynamic interchange of algorithms in your testing library, enabling changes to finding strategies or element waiting techniques on-the-fly. This encapsulation of algorithms within separate classes, all interchangeable under a common interface, significantly boosts the test suite's flexibility and efficiency. This pattern is pivotal for developing scalable, maintainable, and highly adaptable test automation frameworks, facilitating easy adjustments and extensions to your testing strategy to meet evolving requirements.
 
 
