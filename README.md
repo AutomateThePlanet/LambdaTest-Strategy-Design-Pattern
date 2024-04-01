@@ -2,6 +2,7 @@
 :star: Don't Forget to Give a Star to Make the Project Popular!
 
 :question: **What is this Repository About?**
+
 This tutorial explores the Strategy Design Pattern, offering unparalleled flexibility and efficiency in testing frameworks. It acts as a foundation for implementing dynamic behaviors in tests without modifying the core logic. By encapsulating algorithms within separate classes under a common interface, the Strategy Design Pattern enables scalable, maintainable, and highly adaptable test automation frameworks. By the end of this tutorial, you'll understand how to leverage this design pattern for more effective testing outcomes.
 
 **What Will You Learn?**
